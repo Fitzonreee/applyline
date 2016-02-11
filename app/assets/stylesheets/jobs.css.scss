@@ -1,12 +1,14 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.wrapper, .row, .col-md-3, html, body {
+  height: 100% !important;
+}
 .col-md-3 {
   padding: 0 !important;
   margin: 0 !important;
 
-  h3 {
+  .stage {
     margin: 0 0 0 20px;
     font-family: 'Work Sans', sans-serif;
     font-weight: 200;
@@ -17,16 +19,32 @@
 
 .jobs {
   background-color: rgba(246, 187, 66, 0.25);
+  height: 100% !important;
 }
 
 .applied {
   background-color: rgba(246, 187, 66, 0.45);
+  height: 100% !important;
 }
 
 .response {
   background-color: rgba(246, 187, 66, 0.65);
+  height: 100% !important;
 }
 
 .interview {
   background-color: rgba(246, 187, 66, 0.85);
+  height: 100% !important;
+}
+
+
+.panel {
+  width: 85%;
+  margin: 6px auto;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+}
+
+.company {
+  margin: 0;
 }
