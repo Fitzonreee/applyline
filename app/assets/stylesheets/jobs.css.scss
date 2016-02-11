@@ -4,7 +4,9 @@
 
 @import "_vars";
 
-
+/*************************
+		Global - Pipeline
+*************************/
 .wrapper, .row, .col-md-3, html, body {
   height: 100% !important;
 }
@@ -42,11 +44,13 @@
   height: 100% !important;
 }
 
-
+/*************************
+		  Panels
+*************************/
 .panel {
   width: 85%;
   margin: 6px auto;
-  font-family: 'Work Sans', sans-serif;
+  font-family: $main-font;
   font-weight: 400;
 }
 
@@ -82,4 +86,26 @@
 
 .panel-response > .panel-heading {
   background-color: rgba(59, 175, 218, 0.35) !important;
+}
+
+/*************************
+	Modal Form - Add Job
+*************************/
+.modal-title {
+  font-family: $main-font;
+}
+
+textarea {
+  resize: vertical;
+}
+
+form {
+    input, textarea {
+    font-family: $main-font;
+    font-weight: 200;
+  }
+  label, .modal-footer > button {
+    font-family: $main-font;
+    font-weight: 600;
+  }
 }
