@@ -18,13 +18,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import "_vars";
+
 /*************************
 		Navbar
 *************************/
 
 nav {
   border-radius: 0 !important;
-  background-color: #434A54 !important;
+  background-color: $primary-gray !important;
   margin: 0 !important;
 }
 
@@ -33,7 +35,7 @@ nav {
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  background-color: #F6BB42;
+  background-color: $sunflower;
 }
 
 nav li a, .navbar-text {
