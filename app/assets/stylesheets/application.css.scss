@@ -17,13 +17,11 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
 @import "_vars";
 
 /*************************
 		Navbar
 *************************/
-
 nav {
   border-radius: 0 !important;
   background-color: $primary-gray !important;
@@ -39,7 +37,7 @@ nav {
 }
 
 nav li a, .navbar-text {
-  font-family: 'Work Sans', sans-serif;
+  font-family: $main-font;
   font-weight: 200;
   letter-spacing: 1px;
   color: white;
@@ -52,15 +50,7 @@ nav li a, .navbar-text {
 .navbar-brand {
   font-weight: 400;
   letter-spacing: 2px;
-  font-family: 'Arvo', serif;
-}
-
-#logo_icon {
-  margin-right: 8px;
-}
-
-.icon {
-  margin-right: 6px;
+  font-family: $logo-font;
 }
 
 #logout {
@@ -68,4 +58,21 @@ nav li a, .navbar-text {
   padding: 3px 10px;
   border-radius: 6px;
   margin-top: 10px;
+  &:hover {
+    transition: background-color 0.5s ease;
+    background-color: white;
+    color: black;
+    border-color: black;
+  }
+}
+
+/*************************
+		Navbar - ICONS
+*************************/
+#logo_icon {
+  margin-right: 8px;
+}
+
+.icon {
+  margin-right: 6px;
 }
