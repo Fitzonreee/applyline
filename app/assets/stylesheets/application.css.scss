@@ -25,6 +25,7 @@
 nav {
   border-radius: 0 !important;
   background-color: #434A54 !important;
+  margin: 0 !important;
 }
 
 .navbar-default, .navbar-collapse {
@@ -47,8 +48,9 @@ nav li a, .navbar-text {
 }
 
 .navbar-brand {
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 2px;
+  font-family: 'Arvo', serif;
 }
 
 #logo_icon {
