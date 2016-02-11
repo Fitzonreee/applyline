@@ -13,7 +13,7 @@
     font-family: 'Work Sans', sans-serif;
     font-weight: 200;
     letter-spacing: 1px;
-    padding: 20px 0 10px 0;
+    padding: 20px 0 15px 0;
     border-bottom: 1px dotted #434A54
   }
 }
@@ -52,4 +52,30 @@
 
 .description {
   margin-bottom: 20px;
+}
+
+.deliverables {
+  margin-bottom: 10px;
+}
+
+.applied_date {
+  font-weight: 600;
+}
+
+.response_notes {
+  margin-bottom: 25px;
+  background-color: rgba(59, 175, 218, 0.15);
+  padding: 5px 10px 10px 10px;
+  border-radius: 10px;
+}
+
+.interview_notes {
+  margin-bottom: 25px;
+  background-color: rgba(59, 175, 218, 0.45);
+  padding: 5px 10px 10px 10px;
+  border-radius: 10px;
+}
+
+.panel-response > .panel-heading {
+  background-color: rgba(59, 175, 218, 0.35) !important;
 }
