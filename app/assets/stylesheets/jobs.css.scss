@@ -89,6 +89,19 @@
 }
 
 /*************************
+		  Popovers
+*************************/
+.popover-title {
+  font-family: $main-font;
+  margin-bottom: 0;
+}
+.popover-content {
+  font-family: $main-font;
+  font-weight: 200;
+  margin-top: 0;
+}
+
+/*************************
 	Modal Form - Add Job
 *************************/
 .modal-title {

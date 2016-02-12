@@ -16,3 +16,7 @@
 //= require_tree .
 //= require bootstrap
 //= require icheck.min
+
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});

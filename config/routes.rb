@@ -16,4 +16,14 @@ Rails.application.routes.draw do
   # Routes not currently utilized
   get 'jobs/show'
 
+  # Todo -------------------------
+  # 1. create Job model
+      # - save jobs to job model
+  # 2. Be able to edit Jobs
+
+  # Loose ends -------------------
+  # 1. Change colors on responsive view
+  # 2. Delete confirm PW from users table
+  # 3. Add edit button to each panel
+
 end
