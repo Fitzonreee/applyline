@@ -13,4 +13,8 @@ class JobsController < ApplicationController
     # click on job to view details
   end
 
+  def add
+    redirect_to '/welcome'
+  end
+
 end

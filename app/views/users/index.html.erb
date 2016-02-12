@@ -11,7 +11,7 @@
       <!-- REGISTRAION ERRORS -->
       <%  if flash[:reg_errors]
         flash[:reg_errors].each do |error| %>
-        <p style="color: rgb(193, 12, 12)"><%= error %></p>
+        <p><%= error %></p>
       <%  end
       end %>
 
@@ -51,7 +51,7 @@
       <!-- LOGIN ERRORS -->
       <% if flash[:errors]
         flash[:errors].each do |error| %>
-          <p style="color: rgb(193, 12, 12)"><%= error %></p>
+          <p><%= error %></p>
         <% end %>
       <% end %>
       <form role="form" action="/login" method="post" class="login">

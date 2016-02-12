@@ -104,6 +104,9 @@ form {
     font-family: $main-font;
     font-weight: 200;
   }
+  .modal-footer {
+    padding-right: 0;
+  }
   label, .modal-footer > button {
     font-family: $main-font;
     font-weight: 600;

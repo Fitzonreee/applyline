@@ -7,7 +7,7 @@
         <h3 class="modal-title" id="myModalLabel">Add a New Job</h3>
       </div>
       <div class="modal-body">
-        <form>
+        <form role="form" method="post" action="/add_job">
           <div class="form-group">
             <label for="jobTitle">Job Title</label>
             <input type="text" class="form-control" id="jobTitle" placeholder="Job Title">
@@ -28,11 +28,13 @@
             <label for="location">Job Description</label>
             <textarea class="form-control" rows="3" placeholder="Add a brief job description..."></textarea>
           </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Add Job</button>
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success">Add Job</button>
-      </div>
+
     </div>
   </div>
 </div>
