@@ -5,115 +5,25 @@
     <div class="col-md-3">
       <div class="jobs">
         <h3 class="stage">Jobs</h3>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <span>Front End Developer<span class="pull-right">Added on 2/12/2016</span></span>
-          </div>
-          <div class="panel-body">
-            <h5 class="company">Sleepless Media</h5>
-            <p>Santa Cruz, CA</p>
-            <h6>Job Description:</h6>
-            <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-            <div class="checkbox">
-              <label><input type="checkbox" value="">Cover Letter</label>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="">Résumé | CV</label>
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="">Application</label>
-            </div>
-            <button type="button" class="btn btn-success">Finished Application</button>
-            <div class="btn-group pull-right" role="group" aria-label="...">
-              <button type="button" class="btn btn-primary"><i class="fa fa-link"></i></button>
-              <button type="button" class="btn btn-warning"><i class="fa fa-eye"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-            </div>
-          </div>
-        </div>
-
+        <%= render 'jobs/partials/jobs' %>
       </div>
     </div>
     <div class="col-md-3">
       <div class="applied">
         <h3 class="stage">Applied</h3>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <span>Front End Developer<span class="pull-right">Applied on 2/14/2016</span></span>
-          </div>
-          <div class="panel-body">
-            <h5 class="company">Sleepless Media</h5>
-            <p>Santa Cruz, CA</p>
-            <h6>Job Description:</h6>
-            <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-            <span class="label label-primary">Cover Letter</span>
-            <span class="label label-primary">Résumé | CV</span>
-            <div class="btn-group pull-right" role="group" aria-label="...">
-              <button type="button" class="btn btn-primary"><i class="fa fa-link"></i></button>
-              <button type="button" class="btn btn-warning"><i class="fa fa-eye"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-            </div>
-          </div>
-        </div>
-
+        <%= render 'jobs/partials/applied' %>
       </div>
     </div>
     <div class="col-md-3">
       <div class="response">
         <h3 class="stage">Response</h3>
-
-        <div class="panel panel-default panel-response">
-          <div class="panel-heading">
-            <span>Front End Developer<span class="pull-right applied_date">Response on 2/22/2016</span></span>
-          </div>
-          <div class="panel-body">
-            <h5 class="company">Sleepless Media</h5>
-            <p>Santa Cruz, CA</p>
-            <h6>Job Description:</h6>
-            <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-            <div class="response_notes">
-              <h6>Response Notes:</h6>
-              <p>They said I am super kickass and they want to meet me. My point of contact is Austin Powers. His email is manofmystery@aol.com</p>
-            </div>
-            <span class="label label-primary">Cover Letter</span>
-            <span class="label label-primary">Résumé | CV</span>
-            <div class="btn-group pull-right" role="group" aria-label="...">
-              <button type="button" class="btn btn-primary"><i class="fa fa-link"></i></button>
-              <button type="button" class="btn btn-warning"><i class="fa fa-eye"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-            </div>
-          </div>
-        </div>
-
+        <%= render 'jobs/partials/response' %>
       </div>
     </div>
     <div class="col-md-3">
       <div class="interview">
         <h3 class="stage">Interview</h3>
-
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <span>Front End Developer<span class="pull-right applied_date">Interview on 3/2/2016</span></span>
-          </div>
-          <div class="panel-body">
-            <h5 class="company">Sleepless Media</h5>
-            <p>Santa Cruz, CA</p>
-            <h6>Job Description:</h6>
-            <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-            <div class="interview_notes">
-              <h6>Interview Notes:</h6>
-              <p>Interview is set for Tuesday, March 2nd at 10:30am. I am meeting with a hiring manager and having a techinial interview with 3 engineers.</p>
-            </div>
-            <div class="btn-group pull-right" role="group" aria-label="...">
-              <button type="button" class="btn btn-primary"><i class="fa fa-link"></i></button>
-              <button type="button" class="btn btn-warning"><i class="fa fa-eye"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-            </div>
-          </div>
-        </div>
-
+        <%= render 'jobs/partials/interview' %>
       </div>
     </div>
   </div>
