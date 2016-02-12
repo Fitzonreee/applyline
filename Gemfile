@@ -11,8 +11,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
 
 gem 'bootflat-rails', '~> 0.2.1'
 gem 'font-awesome-sass', '~> 4.5.0'
+
+gem 'hirb'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'

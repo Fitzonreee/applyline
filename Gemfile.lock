@@ -31,6 +31,7 @@ GEM
     autoprefixer-rails (6.3.2)
       execjs
       json
+    bcrypt (3.1.10)
     bootflat-rails (0.2.1)
       bootstrap-sass (~> 3.1)
       jquery-rails (~> 3.1)
@@ -51,6 +52,7 @@ GEM
     font-awesome-sass (4.5.0)
       sass (>= 3.2)
     hike (1.2.3)
+    hirb (0.7.3)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -121,9 +123,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootflat-rails (~> 0.2.1)
   coffee-rails (~> 4.0.0)
   font-awesome-sass (~> 4.5.0)
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.8)
