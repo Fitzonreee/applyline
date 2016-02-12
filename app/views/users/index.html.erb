@@ -1,1 +1,52 @@
-<h1>This is the Registration / Login page</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="text-center" id="big-logo"><i class="fa fa-cog" id="big-logo-icon"></i>ApplyLine</h1>
+      <hr id="login-hr">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <h3 class="login-title">Register</h3>
+      <form role="form" action="/register" method="post" class="reg">
+        <div class="form-group">
+          <label for="first_name">First Name:</label>
+          <input type="first_name" class="form-control" id="first_name" name="user[first_name]">
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name:</label>
+          <input type="last_name" class="form-control" id="last_name" name="user[last_name]">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email" name="user[email]">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" name="user[password]">
+        </div>
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password:</label>
+          <input type="password" class="form-control" id="confirm_password" name="user[confirm_pw]">
+        </div>
+        <button type="submit" class="btn btn-default pull-right reg-btn">Join</button>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      </form>
+    </div>
+    <div class="col-md-4">
+      <h3 class="login-title">Login</h3>
+      <form role="form" action="/login" method="post" class="login">
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" name="password">
+        </div>
+        <button type="submit" class="btn btn-default pull-right reg-btn">Login</button>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      </form>
+    </div>
+  </div>
+</div>
