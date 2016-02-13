@@ -17,14 +17,23 @@ class JobsController < ApplicationController
 
   def show
     # click on job to view details
+    # would love for a pop up modal to appear with information
   end
 
   def update
     # edit job listing
+    # would love for a pop up modal to appear with information
+    redirect_to '/welcome'
+  end
+
+  def sent
+    # status changes to apply, appears in next column
   end
 
   def destroy
-    # delete job listing
+    job = Job.find(params[:id])
+    job.destroy
+    redirect_to '/welcome'
   end
 
 end

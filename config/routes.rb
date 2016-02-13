@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   get '/:id/show' => 'jobs#show'
 
-  # routes for update, destroy
+  post '/delete/:id' => 'jobs#destroy'
+  post '/edit/:id' => 'jobs#update'
+
 
 
   # Routes not currently utilized
