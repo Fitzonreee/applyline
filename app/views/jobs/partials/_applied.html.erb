@@ -1,18 +1,48 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <span>Front End Developer<span class="pull-right">Applied on 2/14/2016</span></span>
-  </div>
-  <div class="panel-body">
-    <h5 class="company">Sleepless Media</h5>
-    <p>Santa Cruz, CA</p>
-    <h6>Job Description:</h6>
-    <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-    <span class="label label-primary">Cover Letter</span>
-    <span class="label label-primary">Résumé | CV</span>
-    <div class="btn-group pull-right" role="group" aria-label="...">
-      <button type="button" class="btn btn-primary"><i class="fa fa-link"></i></button>
-      <button type="button" class="btn btn-warning"><i class="fa fa-eye"></i></button>
-      <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+<% if @applied_jobs.count < 1 %>
+  <p class="text-center">Apply for some jobs!</p>
+<% else %>
+  <% @applied_jobs.each do |job| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span><%= job.title %><span class="pull-right date-added">Added <%= time_ago_in_words(job.created_at) %> ago</span></span>
+      </div>
+      <div class="panel-body">
+        <h5 class="company"><%= job.company %></h5>
+        <p><%= job.location %></p>
+        <form action="/reponse/<%= job.id %>" method="post" style="display:inline;">
+          <input type="submit" name="name" value="Received Response" class="btn btn-sm btn-primary">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        </form>
+        <div class="btn-group pull-right" role="group" aria-label="...">
+          <a href="<%= %>" class="btn btn-sm btn-default"><i class="fa fa-info"></i></a>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-cog"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a></li>
+              <li>
+                <span>
+                  <i class="fa fa-pencil"></i>
+                  <form action="/edit/<%= job.id %>" method="post" style="display:inline;">
+                    <input class="dropdown-input" type="submit" name="name" value="Edit">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  </form>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <i class="fa fa-trash-o"></i>
+                  <form action="/delete/<%= job.id %>" method="post" style="display:inline;">
+                    <input class="dropdown-input" type="submit" name="name" value="Delete">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  </form>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+<% end %>

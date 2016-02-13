@@ -8,6 +8,7 @@ class JobsController < ApplicationController
 
     # get all jobs associated with user
     @new_jobs = Job.where(status: "New").order('created_at DESC')
+    @applied_jobs = Job.where(status: "applied").order('created_at DESC')
   end
 
   def add
@@ -27,7 +28,10 @@ class JobsController < ApplicationController
   end
 
   def sent
-    # status changes to apply, appears in next column
+    # status changes to apply, appears in next column, takes id as route param
+    job = Job.find(params[:id])
+    job.update_attribute(:status, "applied")
+    redirect_to "/welcome"
   end
 
   def destroy

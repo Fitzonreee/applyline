@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   post 'add_job' => 'jobs#add'
 
   get '/:id/show' => 'jobs#show'
-
   post '/delete/:id' => 'jobs#destroy'
   post '/edit/:id' => 'jobs#update'
+
+  post '/sent/:id' => 'jobs#sent'
 
 
 
