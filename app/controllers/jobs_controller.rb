@@ -28,7 +28,6 @@ class JobsController < ApplicationController
   end
 
   def sent
-    # status changes to apply, appears in next column, takes id as route param
     job = Job.find(params[:id])
     job.update_attribute(:status, "applied")
     redirect_to "/welcome"
