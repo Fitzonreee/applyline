@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span><%= job.title %><span class="pull-right">Added <%= time_ago_in_words(job.created_at) %></span></span>
+  </div>
+  <div class="panel-body">
+    <h5 class="company"><%= job.company %></h5>
+    <p><%= job.location %></p>
+    <h6>Job Description:</h6>
+    <p class="description"><%= job.description %></p>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Cover Letter</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Résumé | CV</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Application</label>
+    </div>
+    <button type="button" class="btn btn-success">Finished Application</button>
+    <div class="btn-group pull-right" role="group" aria-label="...">
+      <!-- currently broken -->
+      <a href="<%= job.link %>" target="_blank" type="button" class="btn btn-primary" data-toggle="popover" title="Job Posting Link" data-content="Open the original job posting link in a new browser tab" data-trigger="hover" data-placement="top"><i class="fa fa-link"></i></a>
+      <a href="/show/<%= job.id %>" type="button" class="btn btn-normal" data-toggle="popover" title="Job Posting Link" data-content="Open the original job posting link in a new browser tab" data-trigger="hover" data-placement="top"><i class="fa fa-eye"></i></a>
+      <a href="/edit/<%= job.id %>" type="button" class="btn btn-warning" data-toggle="popover" title="Job Posting Link" data-content="Open the original job posting link in a new browser tab" data-trigger="hover" data-placement="top"><i class="fa fa-pencil"></i></a>
+      <a href="/delete/<%= job.id %>" type="button" class="btn btn-danger" data-toggle="popover" title="Job Posting Link" data-content="Open the original job posting link in a new browser tab" data-trigger="hover" data-placement="top"><i class="fa fa-trash-o"></i></a>
+    </div>
+  </div>
+</div>

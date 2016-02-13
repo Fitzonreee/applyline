@@ -1,26 +1,24 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <span>Front End Developer<span class="pull-right">Added on 2/12/2016</span></span>
-  </div>
-  <div class="panel-body">
-    <h5 class="company">Sleepless Media</h5>
-    <p>Santa Cruz, CA</p>
-    <h6>Job Description:</h6>
-    <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-    <div class="checkbox">
-      <label><input type="checkbox" value="">Cover Letter</label>
+<% @new_jobs.each do |job| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span><%= job.title %><span class="pull-right">Added <%= time_ago_in_words(job.created_at) %></span></span>
     </div>
-    <div class="checkbox">
-      <label><input type="checkbox" value="">Résumé | CV</label>
-    </div>
-    <div class="checkbox">
-      <label><input type="checkbox" value="">Application</label>
-    </div>
-    <button type="button" class="btn btn-success">Finished Application</button>
-    <div class="btn-group pull-right" role="group" aria-label="...">
-      <button type="button" class="btn btn-primary" data-toggle="popover" title="Job Posting Link" data-content="Open the original job posting link in a new browser tab" data-trigger="hover" data-placement="top"><i class="fa fa-link"></i></button>
-      <button type="button" class="btn btn-warning"><i class="fa fa-eye"></i></button>
-      <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+    <div class="panel-body">
+      <h5 class="company"><%= job.company %></h5>
+      <p><%= job.location %></p>
+      <button type="button" class="btn btn-sm btn-success finish">Application Sent</button>
+      <!-- Single button -->
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-cog"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#"><i class="fa fa-trash-o"></i></a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#"><i class="fa fa-trash-o"></i>Delete</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

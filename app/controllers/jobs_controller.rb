@@ -7,6 +7,7 @@ class JobsController < ApplicationController
     @full_name = @user.first_name + " " + @user.last_name
 
     # get all jobs associated with user
+    @new_jobs = Job.where(status: "New").order('created_at DESC')
   end
 
   def show
