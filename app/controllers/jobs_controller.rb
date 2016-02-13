@@ -10,13 +10,21 @@ class JobsController < ApplicationController
     @new_jobs = Job.where(status: "New").order('created_at DESC')
   end
 
+  def add
+    Job.create(user_id: session[:current_user_id], title: params["title"], company: params["company"], location: params["location"], link: params["link"], description: params["description"], status: "New")
+    redirect_to '/welcome'
+  end
+
   def show
     # click on job to view details
   end
 
-  def add
-    Job.create(user_id: session[:current_user_id], title: params["title"], company: params["company"], location: params["location"], link: params["link"], description: params["description"], status: "New")
-    redirect_to '/welcome'
+  def update
+    # edit job listing
+  end
+
+  def destroy
+    # delete job listing
   end
 
 end

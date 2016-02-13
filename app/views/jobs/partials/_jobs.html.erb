@@ -1,24 +1,43 @@
 <% @new_jobs.each do |job| %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <span><%= job.title %><span class="pull-right">Added <%= time_ago_in_words(job.created_at) %></span></span>
+      <span><%= job.title %><span class="pull-right">Added <%= time_ago_in_words(job.created_at) %> ago</span></span>
     </div>
     <div class="panel-body">
       <h5 class="company"><%= job.company %></h5>
       <p><%= job.location %></p>
       <button type="button" class="btn btn-sm btn-success finish">Application Sent</button>
-      <!-- Single button -->
-      <div class="btn-group pull-right">
-        <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-cog"></i>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a href="#"><i class="fa fa-trash-o"></i></a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#"><i class="fa fa-trash-o"></i>Delete</a></li>
-        </ul>
+      <div class="btn-group pull-right" role="group" aria-label="...">
+        <a href="<%= %>" class="btn btn-sm btn-default"><i class="fa fa-info"></i></a>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-cog"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a></li>
+            <li>
+              <span>
+                <i class="fa fa-pencil"></i>
+                <form action="/edit/<%= job.id %>" method="post" style="display:inline;">
+                  <input class="dropdown-input" type="submit" name="name" value="Edit">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                </form>
+              </span>
+            </li>
+            <li>
+              <span>
+                <i class="fa fa-trash-o"></i>
+                <form action="/delete/<%= job.id %>" method="post" style="display:inline;">
+                  <input class="dropdown-input" type="submit" name="name" value="Delete">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                </form>
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
+      <!-- Single button -->
+
     </div>
   </div>
 <% end %>

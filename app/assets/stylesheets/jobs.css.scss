@@ -89,6 +89,45 @@
 }
 
 /*************************
+Panels: Dropdown btn/icons
+*************************/
+.dropdown-menu .fa {
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.fa-link {
+  background-color: #3BAFDA;
+}
+
+.fa-pencil {
+  background-color: #F6BB42;
+}
+
+.fa-trash-o {
+  background-color: #DA4453;
+}
+
+.dropdown-menu li span {
+    padding: 5px 20px;
+    color: #FFF;
+    input[type="submit"] {
+      background: none;
+      border: none;
+      font-weight: 400;
+    }
+}
+
+.dropdown-menu li:hover {
+  background-color: rgba(214, 214, 214, 0.35);
+  padding: 2px 0;
+}
+
+.special-icon {
+  margin-right: 8px !important;
+}
+
+/*************************
 		  Popovers
 *************************/
 .popover-title {

@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get 'welcome' => 'jobs#index'
   post 'add_job' => 'jobs#add'
 
+  get '/:id/show' => 'jobs#show'
+
+  # routes for update, destroy
+
 
   # Routes not currently utilized
   get 'jobs/show'
