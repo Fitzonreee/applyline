@@ -14,6 +14,7 @@ class JobsController < ApplicationController
   end
 
   def add
+    Job.create(user_id: session[:current_user_id], title: params["title"], company: params["company"], location: params["location"], link: params["link"], description: params["description"], status: "New")
     redirect_to '/welcome'
   end
 

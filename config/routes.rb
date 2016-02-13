@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   # 1. Change colors on responsive view
   # 2. Delete confirm PW from users table
   # 3. Add edit button to each panel
+  # 4. Change validation errors to BS Alerts
 
 end
