@@ -6,21 +6,36 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 col-md-offset-2">
-      <h3 class="login-title">Register</h3>
+    <div class="col-md-8 col-md-offset-2">
       <!-- REGISTRAION ERRORS -->
       <%  if flash[:reg_errors]
         flash[:reg_errors].each do |error| %>
-        <p><%= error %></p>
+        <div class="alert alert-danger">
+          <strong>Wait a tick!</strong> <%= error %>.
+        </div>
       <%  end
       end %>
-
       <!-- REGISTRAION SUCCESS -->
       <% if flash[:success]
         flash[:success].each do |message| %>
-          <p style="color: rgb(2, 150, 8);"><%= message %></p>
+        <div class="alert alert-danger">
+          <strong>Wait a tick!</strong> <%= error %>.
+        </div>
         <% end %>
       <% end %>
+      <!-- LOGIN ERRORS -->
+      <% if flash[:errors]
+        flash[:errors].each do |error| %>
+        <div class="alert alert-danger">
+          <strong>Wait a tick!</strong> <%= error %>.
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <h3 class="login-title">Register</h3>
       <form role="form" action="/register" method="post" class="reg">
         <div class="form-group">
           <label for="first_name">First Name:</label>
@@ -48,12 +63,6 @@
     </div>
     <div class="col-md-4">
       <h3 class="login-title">Login</h3>
-      <!-- LOGIN ERRORS -->
-      <% if flash[:errors]
-        flash[:errors].each do |error| %>
-          <p><%= error %></p>
-        <% end %>
-      <% end %>
       <form role="form" action="/login" method="post" class="login">
         <div class="form-group">
           <label for="email">Email address:</label>

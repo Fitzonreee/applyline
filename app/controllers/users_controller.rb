@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       redirect_to '/welcome'
     else
       flash[:errors] = ["Invalid email or password"]
-      redirect_to root_path
+      redirect_to "/"
     end
   end
 
