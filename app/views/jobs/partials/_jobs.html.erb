@@ -9,8 +9,8 @@
       <div class="panel-body">
         <h5 class="company"><%= job.company %></h5>
         <p><%= job.location %></p>
-        <form action="/response/<%= job.id %>" method="post" style="display:inline;">
-          <input type="submit" name="name" value="Received Response" class="btn btn-sm btn-primary">
+        <form action="/sent/<%= job.id %>" method="post" style="display:inline;">
+          <input type="submit" name="name" value="Application Sent" class="btn btn-sm btn-success">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         </form>
         <div class="btn-group pull-right" role="group" aria-label="...">

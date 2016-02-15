@@ -9,10 +9,7 @@
       <div class="panel-body">
         <h5 class="company"><%= job.company %></h5>
         <p><%= job.location %></p>
-        <form action="/response/<%= job.id %>" method="post" style="display:inline;">
-          <input type="submit" name="name" value="Received Response" class="btn btn-sm btn-primary">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        </form>
+        <a href="#" data-toggle="modal" data-target="#res_notesModal" class="btn btn-sm btn-primary">Received Response</a>
         <div class="btn-group pull-right" role="group" aria-label="...">
           <a href="<%= %>" class="btn btn-sm btn-default" data-toggle="modal" data-target="#showModal"><i class="fa fa-info"></i></a>
           <div class="btn-group">
@@ -93,5 +90,26 @@
         </div>
       </div>
     </div>
+    <!-- Notes MODAL -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="res_notesModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><span class="notes-title"><%= job.title %> at</span> <%= job.company %></h4>
+          </div>
+          <div class="modal-body">
+            <p class="details">What was the content of their reponse? Who is your point of contact?</p>
+            <form action="/response/<%= job.id %>" method="post" >
+              <textarea name="response_note" class="form-control" rows="3"></textarea>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" name="name" value="Add Note" class="btn btn-sm btn-primary">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   <% end %>
 <% end %>

@@ -167,3 +167,20 @@ form {
     font-weight: 600;
   }
 }
+
+/*************************
+	Modal Form - Notes
+*************************/
+.notes-title {
+  font-weight: 300;
+}
+
+.details {
+  font-family: $main-font;
+  font-weight: 300;
+}
+
+input[type="submit"] {
+  font-family: $main-font;
+  font-weight: 600;
+}

@@ -30,6 +30,8 @@ class JobsController < ApplicationController
   end
 
   def received
+    # save notes!!!!
+
     job = Job.find(params[:id])
     job.update_attribute(:status, "response")
     redirect_to "/welcome"

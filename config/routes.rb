@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   get 'jobs/show'
 
   # Todo -------------------------
-  # Be able to edit Jobs
+
+  # Have modal pop up with options to add notes for response
+  #  - add notes column to model or create notes table
 
 
   # Loose ends -------------------
