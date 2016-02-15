@@ -7,13 +7,13 @@ class JobsController < ApplicationController
     @full_name = @user.first_name + " " + @user.last_name
 
     # get all jobs associated with user
-    @new_jobs = Job.where(status: "New").where(user_id: session[:current_user_id]).order('created_at DESC')
+    @new_jobs = Job.where(status: "new").where(user_id: session[:current_user_id]).order('created_at DESC')
     @applied_jobs = Job.where(status: "applied").where(user_id: session[:current_user_id]).order('created_at DESC')
     @responses = Job.where(status: "response").where(user_id: session[:current_user_id]).order('created_at DESC')
   end
 
   def add
-    Job.create(user_id: session[:current_user_id], title: params["title"], company: params["company"], location: params["location"], link: params["link"], description: params["description"], status: "New")
+    Job.create(user_id: session[:current_user_id], title: params["title"], company: params["company"], location: params["location"], link: params["link"], description: params["description"], status: "new")
     redirect_to '/welcome'
   end
 
@@ -37,6 +37,22 @@ class JobsController < ApplicationController
   def received
     job = Job.find(params[:id])
     job.update_attribute(:status, "response")
+    redirect_to "/welcome"
+  end
+
+  ###########################
+    # All go back methods
+  ##########################
+  def backtrack
+    job = Job.find(params[:id])
+    status = job[:status]
+    if status == "interview"
+      job.update_attribute(:status, "response")
+    elsif status == "response"
+      job.update_attribute(:status, "applied")
+    elsif status == "applied"
+      job.update_attribute(:status, "new")
+    end
     redirect_to "/welcome"
   end
 

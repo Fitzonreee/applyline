@@ -32,6 +32,15 @@
               </li>
               <li>
                 <span>
+                  <i class="fa fa-arrow-circle-left"></i>
+                  <form action="/backtrack/<%= job.id %>" method="post" style="display:inline;">
+                    <input class="dropdown-input" type="submit" name="name" value="Backtrack">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  </form>
+                </span>
+              </li>
+              <li>
+                <span>
                   <i class="fa fa-trash-o"></i>
                   <form action="/delete/<%= job.id %>" method="post" style="display:inline;">
                     <input class="dropdown-input" type="submit" name="name" value="Delete">

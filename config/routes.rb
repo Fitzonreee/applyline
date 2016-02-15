@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   post '/sent/:id' => 'jobs#sent'
   post '/response/:id' => 'jobs#received'
+  post '/backtrack/:id' => 'jobs#backtrack'
+
 
 
 
