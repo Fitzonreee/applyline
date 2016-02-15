@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/edit/:id' => 'jobs#update'
 
   post '/sent/:id' => 'jobs#sent'
-  post '/response/:id' => 'jobs#response'
+  post '/response/:id' => 'jobs#res'
 
 
 

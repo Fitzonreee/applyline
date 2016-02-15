@@ -33,6 +33,12 @@ class JobsController < ApplicationController
     redirect_to "/welcome"
   end
 
+  def res
+    job = Job.find(params[:id])
+    job.update_attribute(:status, "response")
+    redirect_to "/welcome"
+  end
+
   def destroy
     job = Job.find(params[:id])
     job.destroy
