@@ -23,8 +23,9 @@ class JobsController < ApplicationController
   end
 
   def update
-    # edit job listing
     # would love for a pop up modal to appear with information
+    job = Job.find(params[:id])
+    @job = Job.find(job)
     redirect_to '/welcome'
   end
 

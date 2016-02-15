@@ -20,33 +20,17 @@
               <i class="fa fa-cog"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a></li>
               <li>
-                <span>
-                  <i class="fa fa-pencil"></i>
-                  <form action="/edit/<%= job.id %>" method="post" style="display:inline;">
-                    <input class="dropdown-input" type="submit" name="name" value="Edit">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                  </form>
-                </span>
+                <a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a>
               </li>
               <li>
-                <span>
-                  <i class="fa fa-arrow-circle-left"></i>
-                  <form action="/backtrack/<%= job.id %>" method="post" style="display:inline;">
-                    <input class="dropdown-input" type="submit" name="name" value="Backtrack">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                  </form>
-                </span>
+                <a href="/edit/<%= job.id %>"><i class="fa fa-pencil"></i>Edit</a>
               </li>
               <li>
-                <span>
-                  <i class="fa fa-trash-o"></i>
-                  <form action="/delete/<%= job.id %>" method="post" style="display:inline;">
-                    <input class="dropdown-input" type="submit" name="name" value="Delete">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                  </form>
-                </span>
+                <a href="/backtrack/<%= job.id %>"><i class="fa fa-arrow-circle-left"></i>Backtrack</a>
+              </li>
+              <li>
+                <a href="/delete/<%= job.id %>"><i class="fa fa-trash-o"></i>Delete</a>
               </li>
             </ul>
           </div>

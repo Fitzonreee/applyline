@@ -13,12 +13,12 @@ Rails.application.routes.draw do
   post '/add_job' => 'jobs#add'
 
   get '/:id/show' => 'jobs#show'
-  post '/delete/:id' => 'jobs#destroy'
-  post '/edit/:id' => 'jobs#update'
+  get '/delete/:id' => 'jobs#destroy'
+  get '/edit/:id' => 'jobs#update'
+  get '/backtrack/:id' => 'jobs#backtrack'
 
   post '/sent/:id' => 'jobs#sent'
   post '/response/:id' => 'jobs#received'
-  post '/backtrack/:id' => 'jobs#backtrack'
 
 
 
@@ -28,15 +28,11 @@ Rails.application.routes.draw do
   get 'jobs/show'
 
   # Todo -------------------------
-  # 1. create Job model
-      # - save jobs to job model
-  # 2. Be able to edit Jobs
-  # 3. Add Go Back functionality
+  # Be able to edit Jobs
+
 
   # Loose ends -------------------
   # 1. Change colors on responsive view
   # 2. Delete confirm PW from users table
-  # 3. Add edit button to each panel
-  # 4. Change validation errors to BS Alerts
 
 end
