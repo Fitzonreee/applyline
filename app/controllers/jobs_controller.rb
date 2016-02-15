@@ -17,16 +17,10 @@ class JobsController < ApplicationController
     redirect_to '/welcome'
   end
 
-  def show
-    # click on job to view details
-    # would love for a pop up modal to appear with information
-  end
-
   def update
-    # would love for a pop up modal to appear with information
     job = Job.find(params[:id])
-    @job = Job.find(job)
-    @name = "Kevin"
+    job.update_attributes(title: params["title"], company: params["company"], location: params["location"], link: params["link"], description: params["description"])
+    redirect_to "/welcome"
   end
 
   def sent

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get '/:id/show' => 'jobs#show'
   get '/delete/:id' => 'jobs#destroy'
-  get '/edit/:id' => 'jobs#update'
+  post '/edit/:id' => 'jobs#update'
   get '/backtrack/:id' => 'jobs#backtrack'
 
   post '/sent/:id' => 'jobs#sent'
