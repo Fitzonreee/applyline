@@ -1,5 +1,5 @@
 <% if @new_jobs.count < 1 %>
-  <p class="text-center">Add some jobs!</p>
+  <p class="text-center"><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square-o" style="font-size: 100px; color: rgba(158, 158, 158, 0.45)"></i></a></p>
 <% else %>
   <% @new_jobs.each do |job| %>
     <div class="panel panel-default">

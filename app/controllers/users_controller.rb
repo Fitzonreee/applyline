@@ -10,10 +10,10 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.errors.any?
       flash[:req_errors] = user.errors.full_messages
-      redirect_to "/"
+      redirect_to :back
     else
       flash[:success] = ["Registration successful. Please log in."]
-      redirect_to "/welcome"
+      redirect_to :back
     end
   end
 

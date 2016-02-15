@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # Jobs Routes
   get 'welcome' => 'jobs#index'
-  post 'add_job' => 'jobs#add'
+  post '/add_job' => 'jobs#add'
 
   get '/:id/show' => 'jobs#show'
   post '/delete/:id' => 'jobs#destroy'
