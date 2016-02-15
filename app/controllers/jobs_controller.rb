@@ -30,8 +30,14 @@ class JobsController < ApplicationController
   end
 
   def received
-    # save notes!!!!
+    Note.create(user_id: session[:current_user_id], job_id: params[:id], content: params["response_note"])
 
+    job = Job.find(params[:id])
+    job.update_attribute(:status, "response")
+    redirect_to "/welcome"
+  end
+
+  def next
     job = Job.find(params[:id])
     job.update_attribute(:status, "response")
     redirect_to "/welcome"

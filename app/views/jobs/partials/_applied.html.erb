@@ -107,6 +107,7 @@
             <input type="submit" name="name" value="Add Note" class="btn btn-sm btn-primary">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           </form>
+            <a href="/next/<%= job.id %>" class="btn btn-sm btn-default pull-left next">No notes at this time</a>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
