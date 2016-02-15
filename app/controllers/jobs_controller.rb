@@ -9,6 +9,7 @@ class JobsController < ApplicationController
     # get all jobs associated with user
     @new_jobs = Job.where(status: "New").where(user_id: session[:current_user_id]).order('created_at DESC')
     @applied_jobs = Job.where(status: "applied").where(user_id: session[:current_user_id]).order('created_at DESC')
+    @responses = Job.where(status: "response").where(user_id: session[:current_user_id]).order('created_at DESC')
   end
 
   def add
@@ -33,7 +34,7 @@ class JobsController < ApplicationController
     redirect_to "/welcome"
   end
 
-  def res
+  def received
     job = Job.find(params[:id])
     job.update_attribute(:status, "response")
     redirect_to "/welcome"

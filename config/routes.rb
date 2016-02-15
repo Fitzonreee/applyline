@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/edit/:id' => 'jobs#update'
 
   post '/sent/:id' => 'jobs#sent'
-  post '/response/:id' => 'jobs#res'
+  post '/response/:id' => 'jobs#received'
 
 
 
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   # 1. create Job model
       # - save jobs to job model
   # 2. Be able to edit Jobs
+  # 3. Add Go Back functionality
 
   # Loose ends -------------------
   # 1. Change colors on responsive view
