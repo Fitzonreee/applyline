@@ -9,32 +9,39 @@
       <div class="panel-body">
         <h5 class="company"><%= job.company %></h5>
         <p><%= job.location %></p>
-        <form action="/response/<%= job.id %>" method="post" style="display:inline;">
-          <input type="submit" name="name" value="Interview Set" class="btn btn-sm btn-info">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        </form>
-        <div class="btn-group pull-right" role="group" aria-label="...">
-          <a href="<%= %>" class="btn btn-sm btn-default" data-toggle="modal" data-target="#responseShowModal"><i class="fa fa-info"></i></a>
-          <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-cog"></i>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a>
-              </li>
-              <li>
-                <a href="" data-toggle="modal" data-target="#responseEditModal"><i class="fa fa-pencil"></i>Edit</a>
-              </li>
-              <li>
-                <a href="/backtrack/<%= job.id %>"><i class="fa fa-arrow-circle-left"></i>Backtrack</a>
-              </li>
-              <li>
-                <a href="/delete/<%= job.id %>"><i class="fa fa-trash-o"></i>Delete</a>
-              </li>
-            </ul>
+        <% @response_notes.each do |note| %>
+          <% if note.job_id == job.id %>
+            <p class="response-note"><%= note.content %></p>
+          <% end %>
+        <% end %>
+        <div class="panel-bottom">
+          <form action="/response/<%= job.id %>" method="post" style="display:inline;">
+            <input type="submit" name="name" value="Interview Set" class="btn btn-sm btn-info">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          </form>
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <a href="<%= %>" class="btn btn-sm btn-default" data-toggle="modal" data-target="#responseShowModal"><i class="fa fa-info"></i></a>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-cog"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a>
+                </li>
+                <li>
+                  <a href="" data-toggle="modal" data-target="#responseEditModal"><i class="fa fa-pencil"></i>Edit</a>
+                </li>
+                <li>
+                  <a href="/backtrack/<%= job.id %>"><i class="fa fa-arrow-circle-left"></i>Backtrack</a>
+                </li>
+                <li>
+                  <a href="/delete/<%= job.id %>"><i class="fa fa-trash-o"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        </div> <!-- end of panel-footer -->
       </div>
     </div>
     <!-- SHOW JOB MODAL -->
