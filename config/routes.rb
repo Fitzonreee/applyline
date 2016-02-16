@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post '/response/:id' => 'jobs#received'
   get '/next/:id' => 'jobs#next'
 
+  get '/destroy-item/:id' => 'notes#destroy'
+
 
 
 

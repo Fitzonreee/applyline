@@ -36,7 +36,9 @@ class JobsController < ApplicationController
     Note.create(user_id: session[:current_user_id], job_id: params[:id], content: params["response_note"])
 
     job = Job.find(params[:id])
-    job.update_attribute(:status, "response")
+    if job[:status] != "response"
+      job.update_attribute(:status, "response")
+    end
     redirect_to "/welcome"
   end
 

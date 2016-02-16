@@ -11,7 +11,12 @@
         <p><%= job.location %></p>
         <% @response_notes.each do |note| %>
           <% if note.job_id == job.id %>
-            <p class="response-note"><%= note.content %></p>
+            <div class="alert alert-info">
+              <a href="/destroy-item/<%= note.id %>" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </a>
+              <p><%= note.content %></p>
+            </div>
           <% end %>
         <% end %>
         <div class="panel-bottom">
@@ -26,6 +31,9 @@
                 <i class="fa fa-cog"></i>
               </button>
               <ul class="dropdown-menu">
+                <li>
+                  <a href="" data-toggle="modal" data-target="#res_addNote"><i class="fa fa-plus-circle special-icon"></i>Add Note</a>
+                </li>
                 <li>
                   <a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a>
                 </li>
@@ -102,3 +110,26 @@
     </div>
   <% end %>
 <% end %>
+
+<!-- ADD Note MODAL -->
+<div class="modal fade" tabindex="-1" role="dialog" id="res_addNote">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><span class="notes-title">Add Note</h4>
+      </div>
+      <div class="modal-body">
+        <p class="details">Add notes to this job!</p>
+        <form action="/response/" method="post" >
+          <textarea name="response_note" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" name="name" value="Add Note" class="btn btn-sm btn-primary">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      </form>
+        <!-- <a href="/next/" class="btn btn-sm btn-default pull-left next">No notes at this time</a> -->
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
