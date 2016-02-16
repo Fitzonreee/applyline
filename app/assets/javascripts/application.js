@@ -19,4 +19,10 @@
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
+
+    $('.add_note_form').hide();
+
+    $('.toggleNoteForm').onclick(function(){
+      $('.add_note_form').toggle();
+    });
 });

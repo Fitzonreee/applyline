@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/next/:id' => 'jobs#next'
 
   get '/destroy-item/:id' => 'notes#destroy'
+  post '/add_note/:id' => 'notes#add'
 
 
 

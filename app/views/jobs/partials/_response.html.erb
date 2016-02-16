@@ -19,26 +19,36 @@
             </div>
           <% end %>
         <% end %>
+        <div class="add_note_form">
+          <form role="form" method="post" action="/add_note/<%= job.id %>" class="form-inline">
+            <div class="form-group">
+              <label for="add_note">Add Note:</label>
+              <input type="text" class="form-control" name="add_note">
+              <button type="submit" class="btn btn-warning">Add Note</button>
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            </div>
+          </form>
+        </div>
         <div class="panel-bottom">
           <form action="/response/<%= job.id %>" method="post" style="display:inline;">
             <input type="submit" name="name" value="Interview Set" class="btn btn-sm btn-info">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           </form>
           <div class="btn-group pull-right" role="group" aria-label="...">
-            <a href="<%= %>" class="btn btn-sm btn-default" data-toggle="modal" data-target="#responseShowModal"><i class="fa fa-info"></i></a>
+            <a href="<%= %>" class="btn btn-sm btn-default" data-toggle="modal" data-target="#responseShowModal_<%= job.id %>"><i class="fa fa-info"></i></a>
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-cog"></i>
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="" data-toggle="modal" data-target="#res_addNote"><i class="fa fa-plus-circle special-icon"></i>Add Note</a>
+                  <a href="" class="toggleNoteForm"><i class="fa fa-plus-circle special-icon"></i>Add Note</a>
                 </li>
                 <li>
                   <a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a>
                 </li>
                 <li>
-                  <a href="" data-toggle="modal" data-target="#responseEditModal"><i class="fa fa-pencil"></i>Edit</a>
+                  <a href="" data-toggle="modal" data-target="#responseEditModal_<%= job.id %>"><i class="fa fa-pencil"></i>Edit</a>
                 </li>
                 <li>
                   <a href="/backtrack/<%= job.id %>"><i class="fa fa-arrow-circle-left"></i>Backtrack</a>
@@ -53,7 +63,7 @@
       </div>
     </div>
     <!-- SHOW JOB MODAL -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="responseShowModal">
+    <div class="modal fade" tabindex="-1" role="dialog" id="responseShowModal_<%= job.id %>">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -70,7 +80,7 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <!-- EDIT JOB MODAL -->
-    <div class="modal fade" id="responseEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="responseEditModal_<%= job.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -110,26 +120,3 @@
     </div>
   <% end %>
 <% end %>
-
-<!-- ADD Note MODAL -->
-<div class="modal fade" tabindex="-1" role="dialog" id="res_addNote">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><span class="notes-title">Add Note</h4>
-      </div>
-      <div class="modal-body">
-        <p class="details">Add notes to this job!</p>
-        <form action="/response/" method="post" >
-          <textarea name="response_note" class="form-control" rows="3"></textarea>
-      </div>
-      <div class="modal-footer">
-        <input type="submit" name="name" value="Add Note" class="btn btn-sm btn-primary">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      </form>
-        <!-- <a href="/next/" class="btn btn-sm btn-default pull-left next">No notes at this time</a> -->
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
