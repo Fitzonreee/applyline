@@ -16,6 +16,14 @@ class JobsController < ApplicationController
     @notes = Note.where(user_id: session[:current_user_id])
   end
 
+  def all_jobs
+    user = User.find(session[:current_user_id])
+    @user = User.find(user)
+    @full_name = @user.first_name + " " + @user.last_name
+    # show all jobs user has not applied to
+    @new_jobs = Job.where(status: "new").where(user_id: session[:current_user_id]).order('created_at DESC')
+  end
+
   def add
     Job.create(user_id: session[:current_user_id], title: params["title"], company: params["company"], location: params["location"], link: params["link"], description: params["description"], status: "new")
     redirect_to '/welcome'
