@@ -33,10 +33,6 @@ Rails.application.routes.draw do
 
   # Todo -------------------------
 
-  # Have modal pop up with options to add notes for response
-  #  - add notes column to model or create notes table
-
-
   # Loose ends -------------------
   # 1. Change colors on responsive view
   # 2. Delete confirm PW from users table
