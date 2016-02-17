@@ -10,9 +10,10 @@ class JobsController < ApplicationController
     @new_jobs = Job.where(status: "new").where(user_id: session[:current_user_id]).order('created_at DESC')
     @applied_jobs = Job.where(status: "applied").where(user_id: session[:current_user_id]).order('created_at DESC')
     @responses = Job.where(status: "response").where(user_id: session[:current_user_id]).order('created_at DESC')
+    @interviews = Job.where(status: "interview").where(user_id: session[:current_user_id]).order('created_at DESC')
 
     #get notes associated with response jobs
-    @response_notes = Note.where(user_id: session[:current_user_id])
+    @notes = Note.where(user_id: session[:current_user_id])
   end
 
   def add
@@ -33,11 +34,11 @@ class JobsController < ApplicationController
   end
 
   def received
-    Note.create(user_id: session[:current_user_id], job_id: params[:id], content: params["response_note"])
+    # Note.create(user_id: session[:current_user_id], job_id: params[:id], content: params["response_note"])
 
     job = Job.find(params[:id])
-    if job[:status] != "response"
-      job.update_attribute(:status, "response")
+    if job[:status] == "response"
+      job.update_attribute(:status, "interview")
     end
     redirect_to "/welcome"
   end

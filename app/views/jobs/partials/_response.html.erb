@@ -9,7 +9,7 @@
       <div class="panel-body">
         <h5 class="company"><%= job.company %></h5>
         <p><%= job.location %></p>
-        <% @response_notes.each do |note| %>
+        <% @notes.each do |note| %>
           <% if note.job_id == job.id %>
             <div class="alert alert-info">
               <a href="/destroy-item/<%= note.id %>" class="close" data-dismiss="alert" aria-label="Close">

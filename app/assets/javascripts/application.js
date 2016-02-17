@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
@@ -22,7 +23,14 @@ $(document).ready(function(){
 
     $('.add_note_form').hide();
 
-    $('.toggleNoteForm').onclick(function(){
+    $('.toggleNoteForm').click(function(){
       $('.add_note_form').toggle();
     });
+
+    // $('.jobs > .panel').draggable();
+    //
+    // $( ".applied" ).droppable({
+    //   accept: ".jobs > .panel"
+    // });
+
 });

@@ -1,20 +1,119 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <span>Front End Developer<span class="pull-right applied_date">Interview on 3/2/2016</span></span>
-  </div>
-  <div class="panel-body">
-    <h5 class="company">Sleepless Media</h5>
-    <p>Santa Cruz, CA</p>
-    <h6>Job Description:</h6>
-    <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use.</p>
-    <div class="interview_notes">
-      <h6>Interview Notes:</h6>
-      <p>Interview is set for Tuesday, March 2nd at 10:30am. I am meeting with a hiring manager and having a techinial interview with 3 engineers.</p>
+<% if @interviews.count < 1 %>
+  <p class="text-center placeholder">They will come.</p>
+<% else %>
+  <% @interviews.each do |job| %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <span><%= job.title %><span class="pull-right date-added">Added <%= time_ago_in_words(job.created_at) %> ago</span></span>
+      </div>
+      <div class="panel-body">
+        <h5 class="company"><%= job.company %></h5>
+        <p><%= job.location %></p>
+        <% @notes.each do |note| %>
+          <% if note.job_id == job.id %>
+            <div class="alert alert-info">
+              <a href="/destroy-item/<%= note.id %>" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </a>
+              <p><%= note.content %></p>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="add_note_form">
+          <form role="form" method="post" action="/add_note/<%= job.id %>" class="form-inline">
+            <div class="form-group">
+              <label for="add_note">Add Note:</label>
+              <input type="text" class="form-control" name="add_note">
+              <button type="submit" class="btn btn-warning">Add Note</button>
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            </div>
+          </form>
+        </div>
+        <div class="panel-bottom">
+          <a href="#" class="btn btn-sm btn-danger">Got an Offer!</a>
+          <div class="btn-group pull-right" role="group" aria-label="...">
+            <a href="<%= %>" class="btn btn-sm btn-default" data-toggle="modal" data-target="#responseShowModal_<%= job.id %>"><i class="fa fa-info"></i></a>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-cog"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="" class="toggleNoteForm"><i class="fa fa-plus-circle special-icon"></i>Add Note</a>
+                </li>
+                <li>
+                  <a href="<%= job.link %>" target="_blank"><i class="fa fa-link special-icon"></i>Link to Job Posting</a>
+                </li>
+                <li>
+                  <a href="" data-toggle="modal" data-target="#responseEditModal_<%= job.id %>"><i class="fa fa-pencil"></i>Edit</a>
+                </li>
+                <li>
+                  <a href="/backtrack/<%= job.id %>"><i class="fa fa-arrow-circle-left"></i>Backtrack</a>
+                </li>
+                <li>
+                  <a href="/delete/<%= job.id %>"><i class="fa fa-trash-o"></i>Delete</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> <!-- end of panel-footer -->
+      </div>
     </div>
-    <div class="btn-group pull-right" role="group" aria-label="...">
-      <button type="button" class="btn btn-primary"><i class="fa fa-link"></i></button>
-      <button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-      <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+    <!-- SHOW JOB MODAL -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="responseShowModal_<%= job.id %>">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><%= job.title %></h4>
+          </div>
+          <div class="modal-body">
+            <h6>Located in <%= job.location %></h6>
+            <p><%= job.description %></p>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- EDIT JOB MODAL -->
+    <div class="modal fade" id="responseEditModal_<%= job.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="myModalLabel">Update Job Information</h3>
+          </div>
+          <div class="modal-body">
+            <form role="form" method="post" action="/edit/<%= job.id %>">
+              <div class="form-group">
+                <label for="jobTitle">Job Title</label>
+                <input type="text" class="form-control" name="title" value="<%= job.title %>">
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" name="company" value="<%= job.company %>">
+              </div>
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" name="location" value="<%= job.location %>">
+              </div>
+              <div class="form-group">
+                <label for="link">Link to Job Posting</label>
+                <input type="text" class="form-control" name="link" value="<%= job.link %>">
+              </div>
+              <div class="form-group">
+                <label for="location">Job Description</label>
+                <textarea class="form-control" rows="3" name="description"><%= job.description %></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-warning">Update Job</button>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+<% end %>
