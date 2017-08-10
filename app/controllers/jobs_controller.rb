@@ -42,10 +42,12 @@ class JobsController < ApplicationController
   end
 
   def received
-    # Note.create(user_id: session[:current_user_id], job_id: params[:id], content: params["response_note"])
 
     job = Job.find(params[:id])
-    if job[:status] == "response"
+    if job[:status] == "applied"
+      job.update_attribute(:status, "response")
+      Note.create(user_id: session[:current_user_id], job_id: params[:id], content: params["response_note"])
+    elsif job[:status] == "response"
       job.update_attribute(:status, "interview")
     end
     redirect_to "/welcome"
